@@ -1,2 +1,19 @@
 {%extends "base.html"%}
 {%block tittle%}Home Page{%endblock%}
+{%block content%}
+<form method="POST">
+    <div class="form-group">
+        {%for course in courses%}
+        <input type="radio"
+               id="{{course.id}}"
+               name="course" />
+        <label for="course">
+            {{course.name + " " + course.section|string}}
+        </label>
+        <br />
+        {%endfor%}
+    </div>
+    <button type="submit"
+            class="btn btn-primary">Register</button>
+</form>
+{%endblock%}
